@@ -1,0 +1,63 @@
+
+<!-- saved from url=(0074)file:///C:/Users/amolk/OneDrive/Desktop/HTML/L2/FoodApp/pizzaapp.html?si=s -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Pizza App</title>
+    <style>
+        * {
+            font-size: 40px;
+        }
+        body{
+            background-color:lightblue
+        }
+    </style>
+    <script>
+        function pizza(event) {
+            event.preventDefault();
+            
+            let name = document.getElementById("Name");
+            let s = document.getElementById("Sml");
+            let m = document.getElementById("Med");
+            let l = document.getElementById("Lar");
+            let co = document.getElementById("co");
+            let ch = document.getElementById("ch");
+            let pn = document.getElementById("pn");
+            let mu = document.getElementById("mu");
+            let msg = document.getElementById("msg");
+            
+            let size = "";
+            if (s.checked) size = "Small";
+            else if (m.checked) size = "Medium";
+            else if (l.checked) size = "Large";
+            
+            let toppings = "";
+            if (co.checked) toppings += "Corn ";
+            if (ch.checked) toppings += "Cheese ";
+            if (pn.checked) toppings += "Pineapple ";
+            if (mu.checked) toppings += "Mushroom ";
+
+            let orderDetails = "Name: " + name.value + ", Size: " + size + ", Toppings: " + toppings;
+            msg.innerHTML = orderDetails;
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <h1>Pizza Delivery App</h1>
+        <form onsubmit="pizza(event)">
+            <input type="text" id="Name" placeholder="Enter your name"><br><br>
+            <label>Select pizza Size</label> <br><br>
+            <input type="radio" name="size" id="Sml" value="s">Small
+            <input type="radio" name="size" id="Med" value="m">Medium
+            <input type="radio" name="size" id="Lar" value="l">Large <br><br>
+            <label>Select toppings</label> <br><br>
+            <input type="checkbox" id="co">Corn 
+            <input type="checkbox" id="ch">Cheese
+            <input type="checkbox" id="pn">Pineapple
+            <input type="checkbox" id="mu">Mushroom <br><br>
+            <input type="submit" value="Order">
+        </form>
+        <h2 id="msg">Name: arnav, Size: Small, Toppings: Cheese Pineapple Mushroom </h2>
+    </center>
+
+
+</body></html>
